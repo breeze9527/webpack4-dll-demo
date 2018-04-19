@@ -1,5 +1,6 @@
 {
   "name": "webpack4-dll-demo",
+  "description": "dll-plugin demo for webpack@4",
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^2.1.3",
     "clean-webpack-plugin": "^0.1.19",

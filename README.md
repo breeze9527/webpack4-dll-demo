@@ -1,6 +1,6 @@
 # webpack@4 dll demo
 
-dll-plugin for webpack@4
+dll-plugin demo for webpack@4
 
 ## Usage
 
