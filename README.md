@@ -7,6 +7,8 @@ dll-plugin demo for webpack@4
 build dll:
 ```sh
 yarn build:dll
+
+yarn build:scope-dll
 ```
 
 build bundle with dll:
