@@ -1,4 +1,4 @@
-var main_6b60013c21a8f5810e5a =
+var main_2d7aa9437020ac20a9b1 =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -72,16 +72,32 @@ var main_6b60013c21a8f5810e5a =
 /************************************************************************/
 /******/ ({
 
-/***/ "./dep.js":
-/*!****************!*\
-  !*** ./dep.js ***!
-  \****************/
+/***/ "./deps/dep1.js":
+/*!**********************!*\
+  !*** ./deps/dep1.js ***!
+  \**********************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
 
-module.exports = 'foo';
+module.exports = function greeting() {
+    return 'hi';
+}
 
+
+/***/ }),
+
+/***/ "./deps/dep2.js":
+/*!**********************!*\
+  !*** ./deps/dep2.js ***!
+  \**********************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+module.exports = function greeting() {
+    return 'hello';
+}
 
 /***/ }),
 

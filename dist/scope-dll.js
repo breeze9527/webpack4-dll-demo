@@ -1,3 +1,4 @@
+var main_2d7aa9437020ac20a9b1 =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -71,51 +72,44 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./dep.js":
-/*!************************************************************************!*\
-  !*** delegated ../dep.js from dll-reference main_6b60013c21a8f5810e5a ***!
-  \************************************************************************/
+/***/ "./deps/dep1.js":
+/*!**********************!*\
+  !*** ./deps/dep1.js ***!
+  \**********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! all exports used */
+/***/ (function(module, exports) {
 
-module.exports = (__webpack_require__(/*! dll-reference main_6b60013c21a8f5810e5a */ "dll-reference main_6b60013c21a8f5810e5a"))("./dep.js");
+module.exports = function greeting() {
+    return 'hi';
+}
+
 
 /***/ }),
 
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
+/***/ "./deps/dep2.js":
+/*!**********************!*\
+  !*** ./deps/dep2.js ***!
+  \**********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! all exports used */
+/***/ (function(module, exports) {
 
-const dep = __webpack_require__(/*! ./dep */ "./dep.js");
-
-console.info(dep);
-
+module.exports = function greeting() {
+    return 'hello';
+}
 
 /***/ }),
 
 /***/ 0:
-/*!************************!*\
-  !*** multi ./index.js ***!
-  \************************/
+/*!****************!*\
+  !*** dll main ***!
+  \****************/
 /*! no static exports found */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./index.js */"./index.js");
-
-
-/***/ }),
-
-/***/ "dll-reference main_6b60013c21a8f5810e5a":
-/*!********************************************!*\
-  !*** external "main_6b60013c21a8f5810e5a" ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = main_6b60013c21a8f5810e5a;
+module.exports = __webpack_require__;
 
 /***/ })
 

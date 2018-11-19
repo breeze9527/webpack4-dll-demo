@@ -2,17 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const AddAssertHtmlPlugin = require('add-asset-html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
 
 const CWD = process.cwd();
-const DLL_CTX = path.join(CWD, 'dll');
+const DLL_DIST = path.join(CWD, 'dll');
+const SCOPE_DLL_DIST = path.join(CWD, 'scope-dll');
 
 module.exports = {
     mode: process.env.NODE_ENV,
     context: CWD,
-    entry: [
-        './index.js'
-    ],
+    entry: './index',
     devtool: false,
     output: {
         path: path.join(CWD, 'dist'),
@@ -21,21 +19,26 @@ module.exports = {
     plugins: [
         // reference dll
         new webpack.DllReferencePlugin({
-            context: DLL_CTX,
-            manifest: require(path.join(DLL_CTX, 'manifest.json'))
+            manifest: path.join(DLL_DIST, 'manifest.json')
+        }),
+        new webpack.DllReferencePlugin({
+            scope: 'scoped',
+            manifest: path.join(SCOPE_DLL_DIST, 'manifest.json')
         }),
         // generate index.html
         new HtmlPlugin({
             template: path.join(CWD, './index.html')
         }),
         // insert vendors.js into html
-        new AddAssertHtmlPlugin({
-            filepath: path.join(DLL_CTX, 'vendors.dll.js'),
-            includeSourcemap: false
-        }),
-        new CleanPlugin('dist', {
-            root: CWD,
-            verbose: true
-        })
+        new AddAssertHtmlPlugin([
+            {
+                filepath: path.join(DLL_DIST, 'dll.js'),
+                includeSourcemap: false
+            },
+            {
+                filepath: path.join(SCOPE_DLL_DIST, 'scope-dll.js'),
+                includeSourcemap: false
+            }
+        ])
     ]
 }

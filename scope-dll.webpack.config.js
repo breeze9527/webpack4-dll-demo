@@ -2,25 +2,26 @@ const path = require('path');
 const webpack = require('webpack');
 
 const CWD = process.cwd();
-const DLL_DIST = path.join(CWD, 'dll');
+const SCOPE_DLL_DIST = path.join(CWD, 'scope-dll');
 
 module.exports = {
     mode: process.env.NODE_ENV,
     context: CWD,
     entry: [
-        'lodash.map',
-        'lodash.isboolean'
+        './deps/dep1',
+        './deps/dep2'
     ],
-    devtool: false,
     output: {
-        path: DLL_DIST,
-        filename: 'dll.js',
+        path: SCOPE_DLL_DIST,
+        filename: 'scope-dll.js',
         library: '[name]_[hash]'
     },
+    devtool: false,
     plugins: [
         new webpack.DllPlugin({
+            context: path.join(CWD, 'deps'),
             name: '[name]_[hash]',
-            path: path.join(DLL_DIST, 'manifest.json')
+            path: path.join(CWD, 'scope-dll/manifest.json')
         })
     ]
 }
