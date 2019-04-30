@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
-const AddAssertHtmlPlugin = require('add-asset-html-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const CWD = process.cwd();
 const DLL_DIST = path.join(CWD, 'dll');
@@ -30,7 +30,7 @@ module.exports = {
             template: path.join(CWD, './index.html')
         }),
         // insert vendors.js into html
-        new AddAssertHtmlPlugin([
+        new AddAssetHtmlPlugin([
             {
                 filepath: path.join(DLL_DIST, 'dll.js'),
                 includeSourcemap: false
